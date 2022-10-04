@@ -1,0 +1,27 @@
+{
+  "name": "interactive-card-details-form-main",
+  "version": "1.0.0",
+  "description": "![Design preview for the Interactive card details form coding challenge](./design/desktop-preview.jpg)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "parcel"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Anubliss-0/Interactive-card-details-form.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Anubliss-0/Interactive-card-details-form/issues"
+  },
+  "homepage": "https://github.com/Anubliss-0/Interactive-card-details-form#readme",
+  "dependencies": {
+    "flatpickr": "^4.6.13"
+  },
+  "devDependencies": {
+    "eslint": "^8.24.0",
+    "parcel": "^2.7.0"
+  }
+}
