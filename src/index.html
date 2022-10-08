@@ -14,52 +14,74 @@
 
     <title>Frontend Mentor | Interactive card details form</title>
     <script type="module" src="app.js"></script>
-    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="styles.scss" />
   </head>
   <body>
-    0000 0000 0000 0000 Jane Appleseed 00/00 000
+    <div class="card">
+      <div class="front">
+        <span id="front-num">0000 0000 0000 0000</span>
+        <span id="front-name">JANE APPLESEED</span>
+        <p class="expiry-date">
+          <span id="front-mm">00</span>/<span id="front-yy">00</span>
+        </p>
+      </div>
+      <div class="back">
+        <span id="back-cvc">000</span>
+      </div>
+    </div>
 
-    <form action="">
+    <form action="submit">
       <label for="name">Cardholder Name</label>
       <input
         type="text"
         id="name"
         name="name"
         placeholder="e.g. Jane Appleseed"
+        maxlength="20"
       />
       <label for="card-num">Card Number</label>
       <input
-        type="number"
+        type="text"
         id="card-num"
         name="card-num"
         placeholder="e.g. 1234 5678 9123 0000"
-        pattern="/^(?:4[0-9]{12}(?:[0-9]{3})?|[25][1-7][0-9]{14}|6(?:011|5[0-9][0-9])[0-9]{12}|3[47][0-9]{13}|3(?:0[0-5]|[68][0-9])[0-9]{11}|(?:2131|1800|35\d{3})\d{11})$/"
+        maxlength="16"
+        pattern="[0-9]*"
       />
-
+      <label for="month">Exp. Date (MM/YY)</label>
       <input
         autocomplete="off"
         class="exp"
         id="month"
+        name="month"
         maxlength="2"
         pattern="[0-9]*"
-        inputmode="numerical"
         placeholder="MM"
         type="text"
-        pattern="^[0-9]{2}$"
       />
+      <label for="year"></label>
       <input
         autocomplete="off"
         class="exp"
         id="year"
+        name="year"
         maxlength="2"
         pattern="[0-9]*"
-        inputmode="numerical"
         placeholder="YY"
         type="text"
-        pattern="^[0-9]{2}$"
       />
-      <button type="button" id="submit">Submit</button>
-      <!-- CVC e.g. 123 Confirm -->
+      <label for="cvc">CVC</label>
+      <input
+        autocomplete="off"
+        type="text"
+        id="cvc"
+        name="cvc"
+        placeholder="e.g. 123"
+        pattern="[0-9]*"
+        maxlength="3"
+      />
+
+      <button type="button" id="submit">Confirm</button>
     </form>
 
     <!-- Completed state start -->
