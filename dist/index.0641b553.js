@@ -532,14 +532,70 @@ function hmrAcceptRun(bundle, id) {
 }
 
 },{}],"bNKaB":[function(require,module,exports) {
-// import * as validation from "./validate.js"
+var _validateJs = require("./JS/validate.js");
+var _displayCardJs = require("./JS/displayCard.js");
+
+},{"./JS/validate.js":"1AR02","./JS/displayCard.js":"2jwzK"}],"1AR02":[function(require,module,exports) {
+// fire function as soon as submit is pressed.
+// add invalid class on any inputs that do not all inputs
 const inputs = document.querySelectorAll("input");
 const button = document.querySelector("#submit");
+const month = document.querySelector("#month");
+const year = document.querySelector("#year");
+const cardNum = document.querySelector("#card-num");
+const cvc = document.querySelector("#cvc");
 function validate() {
     console.log("firing");
     inputs.forEach((input)=>input.setAttribute("required", "required"));
+    cardNum.setAttribute("minlength", "16");
+    month.setAttribute("minlength", "2");
+    year.setAttribute("minlength", "2");
+    cvc.setAttribute("minlength", "3");
 }
-button.addEventListener("click", validate());
+button.addEventListener("click", validate);
+month.addEventListener("keyup", (event)=>{
+    if (month.value.length == 2) {
+        console.log("testing!");
+        month.nextElementSibling.focus();
+    }
+});
+
+},{}],"2jwzK":[function(require,module,exports) {
+// Input selectors
+const month = document.querySelector("#month");
+const year = document.querySelector("#year");
+const cardNum = document.querySelector("#card-num");
+const cvc = document.querySelector("#cvc");
+const cardName = document.querySelector("#name");
+// Card selectors
+const frontNum = document.querySelector("#front-num");
+const frontName = document.querySelector("#front-name");
+const frontMonth = document.querySelector("#front-mm");
+const frontYear = document.querySelector("#front-yy");
+const backCvc = document.querySelector("#back-cvc");
+cardNum.addEventListener("keyup", (event)=>{
+    if (cardNum.value.length == 0) frontNum.innerText = "0000 0000 0000 0000";
+    else frontNum.innerText = cardNum.value;
+});
+cardName.addEventListener("keyup", (event)=>{
+    if (cardName.value.length == 0) frontName.innerText = "JANE APPLESEED";
+    else frontName.innerText = cardName.value;
+});
+month.addEventListener("keyup", (event)=>{
+    if (month.value.length == 0) frontMonth.innerText = "00";
+    else frontMonth.innerText = month.value;
+});
+year.addEventListener("keyup", (event)=>{
+    if (year.value.length == 0) frontYear.innerText = "00";
+    else frontYear.innerText = year.value;
+});
+cvc.addEventListener("keyup", (event)=>{
+    if (cvc.value.length == 0) backCvc.innerText = "000";
+    else {
+        backCvc.innerText = cvc.value;
+        console.log(cvc.value);
+    }
+});
 
 },{}]},["7Aums","bNKaB"], "bNKaB", "parcelRequiree732")
 
