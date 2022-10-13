@@ -37,17 +37,18 @@
         id="name"
         name="name"
         placeholder="e.g. Jane Appleseed"
-        maxlength="20"
+        maxlength="19"
       />
       <label for="card-num">Card Number</label>
       <input
-        type="text"
-        id="card-num"
-        name="card-num"
-        placeholder="e.g. 1234 5678 9123 0000"
-        maxlength="16"
-        pattern="[0-9]*"
+      type="text"
+      id="card-num"
+      name="card-num"
+      placeholder="e.g. 1234 5678 9123 0000"
+      maxlength="20"
+      pattern="[0-9]*"
       />
+      <span id="num-invalid"></span>
       <label for="month">Exp. Date (MM/YY)</label>
       <input
         autocomplete="off"
@@ -57,8 +58,9 @@
         maxlength="2"
         pattern="[0-9]*"
         placeholder="MM"
-        type="text"
+        type="tel"
       />
+      <span id="month-invalid"></span>
       <label for="year"></label>
       <input
         autocomplete="off"
@@ -68,8 +70,9 @@
         maxlength="2"
         pattern="[0-9]*"
         placeholder="YY"
-        type="text"
+        type="tel"
       />
+      <span id="year-invalid"></span>
       <label for="cvc">CVC</label>
       <input
         autocomplete="off"
